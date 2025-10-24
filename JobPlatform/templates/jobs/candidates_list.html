@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Candidates List{% endblock %}
+
+{% block content %}
+<h1>Candidates for {{ job.title }}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Candidate</th>
+            <th>Email</th>
+            <th>Resume Score</th>
+            <th>Resume</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for application in applications %}
+        <tr>
+            <td>{{ application.candidate.username }}</td>
+            <td>{{ application.candidate.email }}</td>
+            <td>{{ application.score }}%</td>
+            <td><a href="{{ application.candidate.resume.url }}">Download Resume</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

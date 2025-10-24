@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Are you a Candidate or a Company?</h2>
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4 text-center">
+            <a href="/login/candidate/" class="btn btn-primary btn-block mb-3">Candidate Login</a>
+            <a href="/register/candidate/" class="btn btn-secondary btn-block">Candidate Register</a>
+        </div>
+        <div class="col-md-4 text-center">
+            <a href="/login/company/" class="btn btn-primary btn-block mb-3">Company Login</a>
+            <a href="/register/company/" class="btn btn-secondary btn-block">Company Register</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

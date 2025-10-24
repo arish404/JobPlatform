@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Register as Candidate{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4">Register as a Company</h1>
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              
+              <!-- Form fields as they are with the parent elements styled -->
+              {{ form.as_p }}
+
+              <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary w-100">Register</button>
+                <a href="/login/" class="btn btn-link">Login</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

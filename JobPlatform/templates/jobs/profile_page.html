@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align: center;">Profile</h1>
+    <div class="profile-container">
+        <img src="{% if candidate and candidate.profile_image %}{{ candidate.profile_image.url }}{% else %}/static/images/default-profile.png{% endif %}" 
+             alt="Profile Picture" 
+             class="profile-pic rounded-circle" 
+             width="150" height="150">
+
+        <h2>{{ user.username }}</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        
+        {% if candidate %}
+            <p><strong>Skills:</strong> {{ candidate.skills|default:"Not provided" }}</p>
+            <p><strong>Resume:</strong> 
+                {% if candidate.resume %}
+                    <button class="btn btn-secondary" id="viewResumeButton">View Your Resume</button>
+                {% else %}
+                    No resume uploaded.
+                {% endif %}
+            </p>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="resume">Update Resume:</label>
+                    <input type="file" id="resume" name="resume" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload New Resume</button>
+            </form>
+        {% else %}
+            <p>You are not registered as a candidate. Resume upload is not available.</p>
+        {% endif %}
+
+        <a href="/logout/" class="btn btn-danger mt-3">Logout</a>
+    </div>
+</div>
+
+<!-- Modal for Resume -->
+<div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resumeModalLabel">Resume</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <embed src="{{ candidate.resume.url }}" width="100%" height="600px" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JS to trigger modal -->
+<script>
+  document.getElementById('viewResumeButton').addEventListener('click', function() {
+    var resumeModal = new bootstrap.Modal(document.getElementById('resumeModal'));
+    resumeModal.show();
+  });
+</script>
+
+{% endblock %}

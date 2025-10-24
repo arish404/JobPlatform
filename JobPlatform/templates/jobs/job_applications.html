@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Apply Job{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Applications for {{ job.title }}</h1>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Candidate</th>
+                    <th>Resume Score</th>
+                    <th>Applied At</th>
+                    <th>Resume</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for application in applications %}
+                <tr>
+                    <td>{{ application.candidate.user.username }}</td>
+                    <td>{{ application.score }}</td>
+                    <td>{{ application.applied_at }}</td>
+                    <td>
+                        <!-- Button to trigger modal -->
+                        <button class="btn btn-info" data-bs-toggle="modal"
+                                data-bs-target="#resumeModal{{ application.candidate.user.username }}">
+                            <i class="bi bi-eye"></i> View Resume
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal Structure for Resume View -->
+    {% for application in applications %}
+    <div class="modal fade" id="resumeModal{{ application.candidate.user.username }}" tabindex="-1"
+        aria-labelledby="resumeModalLabel{{ application.candidate.user.username }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="resumeModalLabel{{ application.candidate.user.username }}">Resume of {{ application.candidate.user.username }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Embed the Resume PDF -->
+                    {% if application.resume %}
+                    <embed src="{{ application.resume.url }}" width="100%" height="600px" />
+                    {% else %}
+                    <p>No resume uploaded.</p>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

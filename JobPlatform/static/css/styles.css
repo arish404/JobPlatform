@@ -1,0 +1,20 @@
+.profile-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 500px;
+}
+
+.profile-pic {
+    border: 2px solid #ddd;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+/* styles.css */
+html, body {
+    height: 100%;
+}

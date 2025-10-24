@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Your Next Opportunity Awaits!</h1>
+        <p class="lead">Connecting Top Talent with Leading Companies Across Industries</p>
+        <div class="mt-4">
+            <a href="/jobs" class="btn btn-light btn-lg me-3">Find Jobs</a>
+            <a href="/post_job" class="btn btn-outline-light btn-lg">Post a Job</a>
+        </div>
+    </div>
+</header>
+
+<!-- Features Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Why Choose Us?</h2>
+            <p class="text-muted">Explore the features that make our platform unique.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <i class="bi bi-person-bounding-box display-4 text-primary"></i>
+                <h4 class="mt-3">Personalized Jobs</h4>
+                <p>Get job recommendations tailored to your profile.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="bi bi-file-earmark-text display-4 text-primary"></i>
+                <h4 class="mt-3">Easy Applications</h4>
+                <p>Apply quickly with just one click.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="bi bi-diagram-3 display-4 text-primary"></i>
+                <h4 class="mt-3">AI Matching</h4>
+                <p>Let our system match the perfect fit for every role.</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <i class="bi bi-laptop display-4 text-primary"></i>
+                <h4 class="mt-3">User-Friendly</h4>
+                <p>Enjoy a seamless experience on web and mobile.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Our Success Stories</h2>
+            <p class="text-muted">Hear from our users.</p>
+        </div>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="d-flex justify-content-center align-items-center flex-column text-center py-5">
+                        <p class="mb-4">"This platform helped me land my dream job in just a week!"</p>
+                        <footer class="blockquote-footer">Jane D.</footer>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <div class="d-flex justify-content-center align-items-center flex-column text-center py-5">
+                        <p class="mb-4">"Hiring top talent has never been this easy."</p>
+                        <footer class="blockquote-footer">ABC Corp.</footer>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center align-items-center flex-column text-center py-5">
+                        <p class="mb-4">"The AI matching is spot-on. Saved me so much time!"</p>
+                        <footer class="blockquote-footer">Mark R.</footer>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Add this script tag to enable Bootstrap's carousel functionality -->
+
+  <section class="py-5 bg-gradient-primary text-white position-relative">
+    <div class="container position-relative z-index-2">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold display-5">How It Works</h2>
+        <p class="lead">Simplified steps for Job Seekers and Employers</p>
+      </div>
+      <div class="row g-4">
+        <!-- Job Seekers -->
+        <div class="col-md-6">
+          <div class="p-4 rounded-3 bg-white shadow-lg text-dark h-100">
+            <div class="mb-4 text-center">
+              <div class="d-inline-block p-3 rounded-circle bg-gradient-primary text-white">
+                <i class="bi bi-person-circle fs-1"></i>
+              </div>
+            </div>
+            <h4 class="fw-bold text-center mb-4">For Job Seekers</h4>
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-pencil-square fs-2 text-primary"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Create a compelling profile to stand out.</p>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-search fs-2 text-success"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Find personalized job recommendations easily.</p>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="me-3">
+                <i class="bi bi-send-check fs-2 text-danger"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Apply for jobs in just a few clicks!</p>
+            </div>
+          </div>
+        </div>
+        <!-- Employers -->
+        <div class="col-md-6">
+          <div class="p-4 rounded-3 bg-white shadow-lg text-dark h-100">
+            <div class="mb-4 text-center">
+              <div class="d-inline-block p-3 rounded-circle bg-gradient-primary text-white">
+                <i class="bi bi-briefcase fs-1"></i>
+              </div>
+            </div>
+            <h4 class="fw-bold text-center mb-4">For Employers</h4>
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-file-earmark-plus fs-2 text-warning"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Post job listings quickly and efficiently.</p>
+            </div>
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-person-lines-fill fs-2 text-info"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Browse and review qualified applications.</p>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="me-3">
+                <i class="bi bi-award fs-2 text-secondary"></i>
+              </div>
+              <p class="mb-0 fw-semibold">Hire top talent effortlessly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative Elements -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-overlay"></div>
+  </section>
+  
+  <style>
+    .bg-gradient-primary {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+    }
+  
+    .bg-gradient-overlay {
+      background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: 1;
+    }
+  
+    .shadow-lg {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+  
+    .fw-semibold {
+      font-weight: 500;
+    }
+  </style>
+  
+
+<!-- Featured Jobs Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Featured Jobs</h2>
+            <p class="text-muted">Top opportunities available now</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Software Engineer</h5>
+                        <p class="card-text">Location: Remote | $80,000/year</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Marketing Manager</h5>
+                        <p class="card-text">Location: NYC | $70,000/year</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Data Scientist</h5>
+                        <p class="card-text">Location: SF | $120,000/year</p>
+                        <a href="#" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

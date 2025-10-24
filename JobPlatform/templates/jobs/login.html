@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Login to Your Account</h3>
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+
+            <div class="text-center">
+              <p class="mb-0">Don't have an account? 
+                <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Choose Your Role</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Are you a candidate or a company?</p>
+        <div class="d-flex justify-content-around">
+          <a href="/register/candidate/" class="btn btn-primary">Candidate</a>
+          <a href="/register/company/" class="btn btn-secondary">Company</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

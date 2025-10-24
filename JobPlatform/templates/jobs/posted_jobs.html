@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Posted Jobs{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center text-primary mb-4">Your Posted Jobs</h1>
+
+    {% if jobs %}
+        <div class="row">
+            {% for job in jobs %}
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-lg rounded-3">
+                    <div class="card-body">
+                        <!-- Job Title -->
+                        <h4 class="card-title text-dark">{{ job.title }}</h4>
+                        
+                        <!-- Company Name -->
+                        <h6 class="text-muted">Company: {{ job.company_name }}</h6>
+                        
+                        <!-- Description -->
+                        <p class="card-text mt-3">{{ job.description|truncatewords:20 }}</p>
+                        
+                        <!-- Keywords -->
+                        <div>
+                            <strong>Skills Required:</strong>
+                            <div class="d-flex flex-wrap mt-2">
+                                {% for skill in job.keywords_list %}
+                                <span class="badge rounded-pill bg-info text-white me-2 mb-2" style="font-size: 14px; padding: 8px 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                                    {{ skill }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <!-- View Applications Button -->
+                        <div class="mt-4 text-end">
+                            <a href="{% url 'job_applications' job.id %}" class="btn btn-info mt-4">View Applications</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            <strong>No jobs posted yet!</strong> Start posting jobs to view them here.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
